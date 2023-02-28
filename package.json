@@ -1,0 +1,26 @@
+{
+  "name": "check-ecr-image-exists-action",
+  "description": "Github Action to check if an ECR image exists with a certain tag. ",
+  "author": "Juan Wiggenhauser",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:teracloud/check-ecr-image-exists-action.git"
+  },
+  "scripts": {
+    "index": "node -r dotenv/config ./src/index.js",
+    "lint": "eslint ./src/*.js",
+    "package": "ncc build ./src/index.js"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1",
+    "@aws-sdk/client-ecr": "^3.279.0",
+    "aws-sdk": "^2.1231.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.34.0",
+    "eslint": "^8.25.0",
+    "eslint-config-google": "^0.14.0"
+  }
+}

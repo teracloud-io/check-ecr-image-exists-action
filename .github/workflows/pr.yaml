@@ -1,0 +1,26 @@
+name: Pull Request tests
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  lint-code:
+    name: Lint code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Cache dependencies
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: stop-aws-cp-deploy-${{ hashFiles('**/package-lock.json') }}
+      
+      - name: Install packages
+        if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        run: npm install
+      
+      - name: Run linter
+        run: npm run lint

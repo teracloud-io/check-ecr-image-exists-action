@@ -1,0 +1,27 @@
+
+name: Check if a tag exists on a ECR Repository
+description: Github Action to check if an ECR image exists with a certain tag
+author: Juan Wiggenhauser
+branding:
+  icon: 'aperture'
+  color: 'blue'
+inputs:
+  ecr-repository:
+    description: >-
+      Name of the ECR Repository
+    required: true
+  image-tag:
+    description: >-
+      Image tag name
+    required: true
+  region:
+    description: >-
+      AWS Region of the ECR Repositorys
+    required: true
+outputs:
+  exists:
+    description: >-
+      Returns 1 if the image exists or 0 if it doesn't
+runs:
+  using: node16
+  main: ./dist/index.js
