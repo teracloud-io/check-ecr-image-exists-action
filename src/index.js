@@ -30,7 +30,7 @@ const catchError = (error) => {
 
 try {
   const regionName = core.getInput('region');
-  const ecrRepo = core.getInput('ecr-repo');
+  const ecrRepo = core.getInput('ecr-repository');
   const imageTag = core.getInput('image-tag');
   const ecrClient = new AWS.ECR({region: regionName});
   const params = {
