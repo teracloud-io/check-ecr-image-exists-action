@@ -4,11 +4,12 @@ const AWS = require('aws-sdk');
 const listImages = async (params, ecrClient) => {
   console.log(`Getting repository images...`);
   const results = await ecrClient.listImages(params).promise();
-  console.log(`Success. Got ${results.deployments.length} deployments`);
+  console.log(`Success`);
   return results;
 };
 
 const filterResults = (results, imageTag) => {
+  console.log(`Filtering results...`);
   const imageIds = results.imageIds;
   const tags = imageIds.map(function(image) {
     return image.imageTag;
