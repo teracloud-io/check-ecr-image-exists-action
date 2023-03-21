@@ -18,10 +18,6 @@ inputs:
     description: >-
       AWS Region of the ECR Repositorys
     required: true
-outputs:
-  exists:
-    description: >-
-      Returns 1 if the image exists or 0 if it doesn't
 runs:
   using: node16
   main: ./dist/index.js
